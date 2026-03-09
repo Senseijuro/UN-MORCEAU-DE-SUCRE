@@ -4175,3 +4175,56 @@ body::after {
 .fail-effect {
   animation: fail-shake 0.5s cubic-bezier(.36,.07,.19,.97) both, fail-flash 0.5s ease;
 }
+
+/* =================================================================
+   🔍 BOOSTER DE TAILLE DE TEXTE (MODE ÉQUILIBRÉ)
+   ================================================================= */
+
+/* 1. Textes principaux (Paragraphes, règles, consignes) */
+p, .rules-list li, .briefing-intro, .chapter-content p, .membre-desc, 
+.mission-context p, .mission-objective p, .mission-rules li, .game-header p {
+  font-size: 1.1rem !important; /* Agrandissement léger, sans casser le design */
+}
+
+/* 2. Sous-textes et descriptifs */
+.hero-subtitle, .stat-text, .briefing-footer p, .epreuve-card p, 
+.epreuve-status, .warning-box p, .reward-link, .reward-status, .footer p, 
+.btn-formation, .footer-date, .footer-location, .qr-label, .partners-label, 
+.btn-equipe, .membre-role, .time-text, .alert-content p, .damage-info p, 
+.deadline-content p, .dd-hint, .memory-hint, .tri-hint, .drop-label, 
+.next-zone-instruction, .coffre-banner-info p {
+  font-size: 0.95rem !important; 
+}
+
+/* 3. Micro-textes (Badges, tags, compteurs) */
+.page-badge, .epreuve-badge, .mission-tag, .briefing-label, .timer-label, 
+.progress-item span, .qr-text, .briefing-stamp, .obj-number, .loader-status {
+  font-size: 0.8rem !important; 
+  padding: 0.3rem 0.8rem !important; /* Rétablit un espacement normal */
+}
+
+/* 4. Éléments interactifs des jeux */
+.quiz-option, .dd-part, .tri-btn, .memory-stat, .tri-stat, .dd-score-bar, .memory-card-back, .dd-score, .dd-errors {
+  font-size: 1.05rem !important; 
+}
+
+/* 5. Boutons d'action principaux */
+.btn-primary, .epreuve-btn, .coffre-banner-btn, .btn-accept, .btn-validate-large {
+  font-size: 1.1rem !important; 
+  padding: 1rem !important; /* Rétablit une taille de bouton raisonnable */
+}
+
+/* 6. CORRECTION SPÉCIFIQUE : Protection du Timer et de l'Équipe */
+.global-timer-display {
+  font-size: 1.5rem !important; /* Empêche le timer de déborder de sa barre */
+}
+
+.membre-info h3 {
+  font-size: 1.1rem !important; /* Empêche les noms de l'équipe de casser la carte */
+}
+
+@media (max-width: 600px) {
+  .global-timer-display {
+    font-size: 1.25rem !important; /* Sécurité supplémentaire pour les petits écrans */
+  }
+}
