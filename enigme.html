@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Épreuve 3 - Le Bon Geste</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/enigme.css">
+  <link rel="icon" type="image/jpeg" href="img/favicon.jpeg">
+  <audio id="bg-music" loop><source src="audio/enigme2_ost.mp3" type="audio/mpeg"></audio>
+</head>
+<body>
+  <div class="page-loader" id="page-loader"><div class="loader-content"><div class="loader-logo"><div class="loader-symbols"><span class="loader-symbol circle"></span><span class="loader-symbol triangle"></span><span class="loader-symbol square"></span></div></div><div class="loader-text">ÉPREUVE 3 — LE BON GESTE</div><div class="loader-bar"><div class="loader-progress"></div></div><div class="loader-status">Préparation des situations...</div></div></div>
+  <header class="header"><a href="index.html" class="back-btn">← Retour</a><div class="header-center"><span class="page-badge">ÉPREUVE 3</span></div><div class="header-right"></div></header>
+  <main class="game-page">
+    <div class="game-container game-container-wide">
+      <div class="game-header"><div class="game-icon-large">💛</div><h1 class="pink">LE BON GESTE</h1><p>Une situation délicate — quelle est la bonne réaction professionnelle ?</p></div>
+      <div class="game-content">
+        <div class="locked-container hidden" id="locked"><div class="locked-box"><span class="lock-icon">🔒</span><h3>Épreuve verrouillée</h3><p>Termine d'abord l'épreuve 2.</p><a href="quiz.html" class="btn-primary">ÉPREUVE 2</a></div></div>
+        <div id="game-area" class="geste-game">
+          <div class="geste-score-bar"><span class="geste-round" id="gs-round">💛 1 / 6</span><span class="geste-correct" id="gs-correct">✅ 0</span><span class="geste-errors" id="gs-errors">❌ 0</span></div>
+          <div class="geste-situation" id="gs-situation"><span class="geste-sit-emoji" id="gs-emoji"></span><span class="geste-sit-context" id="gs-context"></span><span class="geste-sit-text" id="gs-text"></span><span class="geste-sit-counter" id="gs-counter"></span></div>
+          <div class="geste-question">👆 Quelle est la bonne réaction ?</div>
+          <div class="geste-explain" id="gs-explain"></div>
+          <div class="geste-reactions" id="gs-reactions"></div>
+          <p class="geste-hint">Après le jeu, demande à l'intervenant comment il réagit dans ces situations !</p>
+        </div>
+        <div class="result-container-full hidden" id="result">
+          <div class="result-box" id="result-box"><div class="result-icon" id="result-icon"></div><h3 id="result-title"></h3><p id="result-text"></p><p class="result-score" id="result-score"></p><a href="coffre.html" class="btn-primary btn-gold">🏆 VOIR LES RÉCOMPENSES</a></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="js/loader.js"></script><script src="js/gameState.js"></script><script src="js/globalTimer.js"></script><script src="js/enigme.js"></script><script src="js/music.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</body>
+</html>

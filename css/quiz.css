@@ -1,0 +1,161 @@
+/* =================================================================
+   ÉPREUVE 2 — ALERTE SÉCURITÉ
+   ================================================================= */
+
+.alert-game {
+  padding: 1rem 0;
+}
+
+.alert-score-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.alert-found {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.alert-errors {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.alert-scene {
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+.alert-context {
+  text-align: center;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  background: rgba(255, 68, 68, 0.06);
+  border: 1px solid rgba(255, 68, 68, 0.2);
+  border-radius: 12px;
+}
+
+.alert-context-emoji {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.alert-context-text {
+  font-size: 0.9rem;
+  color: var(--gray-light);
+}
+
+.alert-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  max-width: 520px;
+  margin: 0 auto 1rem;
+}
+
+.alert-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.7rem 0.3rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+  min-height: 85px;
+  justify-content: center;
+}
+
+.alert-item:hover {
+  border-color: var(--red);
+  background: rgba(255, 68, 68, 0.05);
+  transform: scale(1.05);
+}
+
+.alert-item-emoji {
+  font-size: 1.8rem;
+}
+
+.alert-item-text {
+  font-size: 0.55rem;
+  color: var(--gray);
+  line-height: 1.2;
+}
+
+.alert-item.danger-found {
+  border-color: var(--red);
+  background: rgba(255, 68, 68, 0.15);
+  pointer-events: none;
+}
+
+.alert-item.danger-found .alert-item-emoji {
+  animation: alertShake 0.4s ease;
+}
+
+.alert-item.danger-found .alert-item-text {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.alert-item.safe-item {
+  border-color: var(--green);
+  background: rgba(0, 255, 136, 0.08);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.alert-item.safe-item .alert-item-text {
+  color: var(--green);
+}
+
+@keyframes alertShake {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+}
+
+.alert-explain {
+  text-align: center;
+  min-height: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--red);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  padding: 0 0.5rem;
+}
+
+.alert-hint {
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 450px) {
+  .alert-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .alert-item-emoji {
+    font-size: 1.5rem;
+  }
+  .alert-item {
+    padding: 0.6rem 0.2rem;
+    min-height: 70px;
+  }
+}

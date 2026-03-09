@@ -1,0 +1,188 @@
+/* =================================================================
+   ÉPREUVE 1 — QUI SUIS-JE ?
+   ================================================================= */
+
+.qsj-game {
+  padding: 1rem 0;
+}
+
+.qsj-score-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.qsj-round {
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+.qsj-correct {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.qsj-errors {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.qsj-clues-zone {
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+}
+
+.qsj-mystery-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.qsj-mystery-emoji {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  animation: qsjPulse 2s ease infinite;
+}
+
+.qsj-mystery-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--pink);
+}
+
+@keyframes qsjPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.qsj-clues-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.qsj-clue {
+  padding: 0.8rem 1rem;
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: var(--gray-light);
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.5s ease;
+}
+
+.qsj-clue.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.qsj-clue-num {
+  font-weight: 700;
+  color: var(--cyan);
+  margin-right: 0.5rem;
+}
+
+.qsj-answers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  max-width: 480px;
+  margin: 0 auto 1rem;
+}
+
+.qsj-answer {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.qsj-answer:hover {
+  border-color: var(--cyan);
+  background: rgba(0, 212, 255, 0.05);
+  transform: scale(1.03);
+}
+
+.qsj-answer.correct-pick {
+  border-color: var(--green);
+  background: rgba(0, 255, 136, 0.15);
+  pointer-events: none;
+  color: var(--green);
+}
+
+.qsj-answer.wrong-pick {
+  border-color: var(--red);
+  background: rgba(255, 68, 68, 0.1);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.qsj-answer.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.qsj-answer.reveal {
+  border-color: var(--green);
+  background: rgba(0, 255, 136, 0.08);
+}
+
+.qsj-explain {
+  text-align: center;
+  min-height: 2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.qsj-explain.good {
+  color: var(--green);
+}
+
+.qsj-explain.bad {
+  color: var(--red);
+}
+
+.qsj-waiting {
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.qsj-hint {
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 450px) {
+  .qsj-answers {
+    grid-template-columns: 1fr;
+  }
+  .qsj-answer {
+    padding: 0.8rem;
+  }
+}

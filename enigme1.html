@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Épreuve 1 - Qui suis-je ?</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/jpeg" href="img/favicon.jpeg">
+  <link rel="stylesheet" href="css/enigme1.css">
+  <audio id="bg-music" loop><source src="audio/enigme_ost.mp3" type="audio/mpeg"></audio>
+</head>
+<body>
+  <div class="page-loader" id="page-loader"><div class="loader-content"><div class="loader-logo"><div class="loader-symbols"><span class="loader-symbol circle"></span><span class="loader-symbol triangle"></span><span class="loader-symbol square"></span></div></div><div class="loader-text">ÉPREUVE 1 — QUI SUIS-JE ?</div><div class="loader-bar"><div class="loader-progress"></div></div><div class="loader-status">Recherche du professionnel mystère...</div></div></div>
+  <header class="header"><a href="index.html" class="back-btn">← Retour</a><div class="header-center"><span class="page-badge">ÉPREUVE 1</span></div><div class="header-right"></div></header>
+  <main class="game-page">
+    <div class="game-container game-container-wide">
+      <div class="game-header"><div class="game-icon-large">❓</div><h1 class="purple">QUI SUIS-JE ?</h1><p>Des indices apparaissent un par un — devine le métier le plus vite possible !</p></div>
+      <div class="game-content">
+        <div id="game-area" class="qsj-game">
+          <div class="qsj-score-bar"><span class="qsj-round" id="qsj-round">❓ Métier 1 / 5</span><span class="qsj-correct" id="qsj-correct">✅ 0</span><span class="qsj-errors" id="qsj-errors">❌ 0</span></div>
+          <div class="qsj-clues-zone">
+            <div class="qsj-mystery-header"><span class="qsj-mystery-emoji">❓</span><span class="qsj-mystery-title">QUI SUIS-JE ?</span></div>
+            <div class="qsj-clues-list" id="qsj-clues"></div>
+            <div class="qsj-waiting" id="qsj-waiting">Les indices arrivent...</div>
+          </div>
+          <div class="qsj-explain" id="qsj-explain"></div>
+          <div class="qsj-answers" id="qsj-answers"></div>
+          <p class="qsj-hint">Plus tu devines vite, plus tu montres que tu connais le métier !</p>
+        </div>
+        <div class="result-container-full hidden" id="result">
+          <div class="result-box" id="result-box"><div class="result-icon" id="result-icon"></div><h3 id="result-title"></h3><p id="result-text"></p><p class="result-score" id="result-score"></p><a href="quiz.html" class="btn-primary">CONTINUER →</a></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="js/loader.js"></script><script src="js/gameState.js"></script><script src="js/globalTimer.js"></script><script src="js/enigme1.js"></script><script src="js/music.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</body>
+</html>
