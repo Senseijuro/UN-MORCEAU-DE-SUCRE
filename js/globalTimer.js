@@ -5,6 +5,11 @@
 // ==========================================
 
 (function() {
+  // Fallback si gameState.js n'a pas encore défini TIMER_KEY
+  if (typeof TIMER_KEY === 'undefined') {
+    window.TIMER_KEY = 'globalTimerStart';
+  }
+
   var TIMER_DURATION = 120; // 2 minutes
   var timerInterval = null;
   var hasExpired = false;
@@ -95,8 +100,8 @@
     }
 
     // Rediriger vers le coffre (sauf si déjà sur coffre ou équipe)
-    var filename = window.location.pathname.split('/').pop() || '';
-    if (filename.indexOf('coffre') === -1 && filename.indexOf('equipe') === -1) {
+    var curPath = (window.location.pathname || '').toLowerCase();
+    if (curPath.indexOf('coffre') === -1 && curPath.indexOf('equipe') === -1) {
       setTimeout(function() {
         window.location.href = 'coffre.html';
       }, 2000);
@@ -153,11 +158,14 @@
     }
   }
 
-  // Détection page jeu
-  var filename = (window.location.pathname.split('/').pop() || '').toLowerCase();
-  var isGamePage = filename === 'enigme1.html' ||
-                   filename === 'quiz.html' ||
-                   filename === 'enigme.html';
+  // Détection page jeu — compatible Netlify (URLs sans .html, trailing slash, etc.)
+  var fullPath = (window.location.pathname || '').toLowerCase().replace(/\/+$/, '');
+  var filename = fullPath.split('/').pop() || '';
+  // Supprimer l'extension .html si présente pour comparer uniformément
+  var pageName = filename.replace('.html', '');
+  var isGamePage = pageName === 'enigme1' ||
+                   pageName === 'quiz' ||
+                   pageName === 'enigme';
 
   document.addEventListener('DOMContentLoaded', function() {
     // Lancer le timer automatiquement sur les pages de jeu

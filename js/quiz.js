@@ -139,13 +139,11 @@ document.addEventListener('DOMContentLoaded', function() {
       if (rt) rt.textContent = 'INSPECTION RÉUSSIE !';
       if (rx) rx.textContent = 'Tu sais protéger les personnes fragiles. Badge débloqué !';
     } else {
-      /* --- EFFETS D'ÉCHEC --- */
-      // 1. Vibration saccadée d'erreur (Bzz-Bzz-Bzz)
+      
       if (navigator.vibrate) navigator.vibrate([50, 100, 50, 100, 50]); 
       
-      // 2. Fait trembler la fenêtre de résultat
       if (rb) {
-        rb.classList.remove('fail-effect'); // Réinitialise au cas où
+        rb.classList.remove('fail-effect');
         void rb.offsetWidth; // Force la mise à jour (astuce JS)
         rb.classList.add('fail-effect');
       }
