@@ -5,11 +5,6 @@
 // ==========================================
 
 (function() {
-  // Fallback si gameState.js n'a pas encore défini TIMER_KEY
-  if (typeof TIMER_KEY === 'undefined') {
-    window.TIMER_KEY = 'globalTimerStart';
-  }
-
   var TIMER_DURATION = 120; // 2 minutes
   var timerInterval = null;
   var hasExpired = false;
@@ -43,14 +38,26 @@
     bar.id = 'global-timer-bar';
     bar.className = 'global-timer-bar';
     bar.innerHTML =
-      '<div class="global-timer-inner">' +
-        '<div class="global-timer-left">' +
-          '<span class="global-timer-icon">⏱️</span>' +
-          '<span class="global-timer-label" id="gt-label">EN ATTENTE</span>' +
-        '</div>' +
-        '<span class="global-timer-display" id="gt-display">02:00</span>' +
-        '<div class="global-timer-progress">' +
-          '<div class="global-timer-fill" id="gt-fill"></div>' +
+      '<div class="gt-hud">' +
+        '<div class="gt-corner gt-corner-tl"></div>' +
+        '<div class="gt-corner gt-corner-tr"></div>' +
+        '<div class="gt-corner gt-corner-bl"></div>' +
+        '<div class="gt-corner gt-corner-br"></div>' +
+        '<div class="gt-scanline"></div>' +
+        '<div class="gt-row">' +
+          '<div class="gt-block gt-block-status">' +
+            '<span class="gt-pip"></span>' +
+            '<span class="global-timer-label" id="gt-label">EN ATTENTE</span>' +
+          '</div>' +
+          '<div class="gt-block gt-block-time">' +
+            '<span class="gt-time-icon">⏱</span>' +
+            '<span class="global-timer-display" id="gt-display">02:00</span>' +
+          '</div>' +
+          '<div class="gt-block gt-block-bar">' +
+            '<div class="global-timer-progress">' +
+              '<div class="global-timer-fill" id="gt-fill"></div>' +
+            '</div>' +
+          '</div>' +
         '</div>' +
       '</div>';
 
@@ -100,8 +107,8 @@
     }
 
     // Rediriger vers le coffre (sauf si déjà sur coffre ou équipe)
-    var curPath = (window.location.pathname || '').toLowerCase();
-    if (curPath.indexOf('coffre') === -1 && curPath.indexOf('equipe') === -1) {
+    var filename = window.location.pathname.split('/').pop() || '';
+    if (filename.indexOf('coffre') === -1 && filename.indexOf('equipe') === -1) {
       setTimeout(function() {
         window.location.href = 'coffre.html';
       }, 2000);
@@ -158,14 +165,11 @@
     }
   }
 
-  // Détection page jeu — compatible Netlify (URLs sans .html, trailing slash, etc.)
-  var fullPath = (window.location.pathname || '').toLowerCase().replace(/\/+$/, '');
-  var filename = fullPath.split('/').pop() || '';
-  // Supprimer l'extension .html si présente pour comparer uniformément
-  var pageName = filename.replace('.html', '');
-  var isGamePage = pageName === 'enigme1' ||
-                   pageName === 'quiz' ||
-                   pageName === 'enigme';
+  // Détection page jeu
+  var filename = (window.location.pathname.split('/').pop() || '').toLowerCase();
+  var isGamePage = filename === 'enigme1.html' ||
+                   filename === 'quiz.html' ||
+                   filename === 'enigme.html';
 
   document.addEventListener('DOMContentLoaded', function() {
     // Lancer le timer automatiquement sur les pages de jeu
