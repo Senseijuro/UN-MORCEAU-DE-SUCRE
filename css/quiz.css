@@ -77,10 +77,20 @@
   justify-content: center;
 }
 
-.alert-item:hover {
-  border-color: var(--red);
-  background: rgba(255, 68, 68, 0.05);
-  transform: scale(1.05);
+/* ANTI-STICKY HOVER */
+@media (hover: hover) and (pointer: fine) {
+  .alert-item:hover {
+    border-color: var(--red);
+    background: rgba(255, 68, 68, 0.05);
+    transform: scale(1.05);
+  }
+}
+@media (hover: none) {
+  .alert-item:hover {
+    border-color: var(--border) !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    transform: none !important;
+  }
 }
 
 .alert-item-emoji {

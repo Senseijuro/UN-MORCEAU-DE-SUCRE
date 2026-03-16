@@ -127,6 +127,10 @@ document.addEventListener('DOMContentLoaded', function() {
       );
 
       reactionsEl.innerHTML = '';
+      // --- ANTI-STICKY HOVER JS ---
+      reactionsEl.style.pointerEvents = 'none';
+      setTimeout(function() { reactionsEl.style.pointerEvents = 'auto'; }, 150);
+      // -----------------------------
       options.forEach(function(opt, i) {
         var el = document.createElement('div');
         el.className = 'geste-reaction';

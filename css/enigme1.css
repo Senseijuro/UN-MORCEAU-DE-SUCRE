@@ -117,10 +117,20 @@
   color: var(--white);
 }
 
-.qsj-answer:hover {
-  border-color: var(--cyan);
-  background: rgba(0, 212, 255, 0.05);
-  transform: scale(1.03);
+/* ANTI-STICKY HOVER */
+@media (hover: hover) and (pointer: fine) {
+  .qsj-answer:hover {
+    border-color: var(--cyan);
+    background: rgba(0, 212, 255, 0.05);
+    transform: scale(1.03);
+  }
+}
+@media (hover: none) {
+  .qsj-answer:hover {
+    border-color: var(--border) !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    transform: none !important;
+  }
 }
 
 .qsj-answer.correct-pick {

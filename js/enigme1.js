@@ -140,6 +140,10 @@ document.addEventListener('DOMContentLoaded', function() {
         )
       );
       answersEl.innerHTML = '';
+      // --- ANTI-STICKY HOVER JS ---
+      answersEl.style.pointerEvents = 'none';
+      setTimeout(function() { answersEl.style.pointerEvents = 'auto'; }, 150);
+      // -----------------------------
       options.forEach(function(opt) {
         var el = document.createElement('div');
         el.className = 'qsj-answer';

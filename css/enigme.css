@@ -119,10 +119,20 @@
   gap: 0.8rem;
 }
 
-.geste-reaction:hover {
-  border-color: var(--cyan);
-  background: rgba(0, 212, 255, 0.05);
-  transform: translateX(5px);
+/* ANTI-STICKY HOVER */
+@media (hover: hover) and (pointer: fine) {
+  .geste-reaction:hover {
+    border-color: var(--cyan);
+    background: rgba(0, 212, 255, 0.05);
+    transform: translateX(5px);
+  }
+}
+@media (hover: none) {
+  .geste-reaction:hover {
+    border-color: var(--border) !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    transform: none !important;
+  }
 }
 
 .geste-reaction-letter {
